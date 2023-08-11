@@ -1,0 +1,19 @@
+{% extends "user/exercise.html" %}
+<!-- exercise_content -->
+{% block exercise_content%}
+<article class="result" style="margin-top: 30px">
+  <h1>Dinner date possible</h1>
+  <hr />
+  <p>Restaurants where you can eat vegan food at 19:00:</p>
+  {% for item in res %}
+  <h4 style="margin-top: 30px">It is possible to eat at {{item.name}}.</h4>
+  <p>They serve {{item.dish.name}} as vegan foot.</p>
+  <span>They will close at {{ item.closing_time }}</span>
+  <hr />
+  {% endfor %}
+  <hr />
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</article>
+{% endblock %}

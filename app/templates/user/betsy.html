@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+<!-- title -->
+{% block title %}Results{% endblock %}
+<!-- content -->
+{% block content%}
+<main id="main-area">
+  <article>
+    <h1>Results</h1>
+    <p>Please, click one of the links below.</p>
+    <hr />
+    <nav id="sub-nav-area">
+      <ul>
+        <li>
+          <a href="{{ url_for('betsy.search_product') }}">Search for product</a>
+        </li>
+        <li>
+          <a href="{{ url_for('betsy.list_user_products') }}"
+            >Products of user</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('betsy.list_product_by_tag') }}"
+            >View products for given tag</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('betsy.add_product') }}">Add product</a>
+        </li>
+        <li>
+          <a href="{{ url_for('betsy.show_product') }}"
+            >Remove product from user</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('betsy.update_product') }}"
+            >Update stock quantity</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('betsy.handle_purchase') }}">Handle purchase</a>
+        </li>
+      </ul>
+    </nav>
+  </article>
+  {% block betsy_content %}{% endblock %}
+</main>
+{% endblock %}

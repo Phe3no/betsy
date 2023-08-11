@@ -1,0 +1,30 @@
+{% extends "user/betsy.html" %}
+<!-- betsy_content -->
+{% block betsy_content%}
+<article id="form-area" style="margin-top: 30px">
+  <h1>Do you want to delete one of your products {{ g.user.username }}?</h1>
+  <hr />
+  {% for item in res %}
+  <form
+    action="{{ url_for('betsy.remove_product', name=item.name ) }}"
+    method="post"
+  >
+    <div class="update-delete">
+      <h4>{{ item.name }}</h4>
+      <button type="submit">Delete product</button>
+    </div>
+    <span
+      >{{ item.description }}, Price: {{ item.price_per_unit }} per unit,
+      Quantity in stock: {{ item.amount_in_stock }}.</span
+    >
+    <hr />
+  </form>
+  {% endfor %}
+</article>
+<article class="result">
+  <!-- message -->
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</article>
+{% endblock %}

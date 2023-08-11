@@ -1,0 +1,24 @@
+{% extends "user/exercise.html" %}
+<!-- content -->
+{% block exercise_content%}
+<section id="form-area" style="margin-top: 30px">
+  <h2>Add ingredient.</h2>
+  <hr />
+  <form method="post">
+    <label for="name">name</label>
+    <input name="name" id="name" required />
+    <label for="vegatarian">Vegatarian</label>
+    <input type="checkbox" name="vegatarian" id="vegatarian" />
+    <label for="vegan">Vegan</label>
+    <input type="checkbox" name="vegan" id="vegan" />
+    <label for="glutenfree">Glutenfree</label>
+    <input type="checkbox" name="glutenfree" id="glutenfree" />
+    <button type="submit" name="submit-login">Add ingredient</button>
+  </form>
+  <hr />
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</section>
+
+{% endblock %}

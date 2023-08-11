@@ -1,0 +1,26 @@
+{% extends "user/exercise.html" %}
+<!-- exercise_content -->
+{% block exercise_content%}
+<article class="result" style="margin-top: 30px">
+  <h1>Add dish</h1>
+  <hr />
+  {% if dish == None %}
+  <h4>No dish was added</h4>
+  {% else %}
+  <p>This dish was added:</p>
+  <h4>{{ dish.name }}</h4>
+  <p>Dish is served at {{ restaurant.name }}.</p>
+  <p>The price is {{dish.price_in_cents}} cents.</p>
+  <span>
+    {% for ingredient in dish.ingredients %} {{ ingredient.name }}
+    <!-- check for last loop -->
+    {% if not loop.last %} , {% endif %}
+    <!-- end of for loop -->
+    {% endfor %}
+  </span>
+  <hr />
+  {% endif %} {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</article>
+{% endblock %}

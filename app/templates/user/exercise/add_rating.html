@@ -1,0 +1,33 @@
+{% extends "user/exercise.html" %}
+<!-- content -->
+{% block exercise_content%}
+<main id="main-area">
+  <section id="form-area">
+    <h2>Add rating.</h2>
+    <hr />
+    <form method="post">
+      <label for="restaurant">Restaurant</label>
+      <select name="restaurant" id="restaurant" required />
+      {% for restaurant in restaurants %}
+        <option value="{{ restaurant.name }}">{{ restaurant.name }}</option>
+      {% endfor %}
+      </select>
+      <label for="rating">Rating</label>
+      <input type="number" name="rating" id="rating" min="1" max="10" />
+      <label for="comment">Comment</label>
+      <textarea
+        type="text"
+        name="comment"
+        id="comment"
+        cols="30"
+        rows="3"
+      ></textarea>
+      <button type="submit" name="submit-login">Add rating</button>
+    </form>
+    <hr />
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}

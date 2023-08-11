@@ -1,0 +1,32 @@
+<header id="header-area">
+  <h1><span>Winc</span> <span>Flask</span> <span>Peewee</span></h1>
+  <nav id="nav-area">
+    {% if g.user %}
+    <ul>
+      <li><a href="{{ url_for('home.index') }}">Home</a></li>
+      <li><a href="{{ url_for('home.about') }}">About</a></li>
+      <li id="dropdown">
+        <p>Dropdown</p>
+        <ul class="dropdown-content">
+          <li>
+            <a href="{{ url_for('exercise.exercise') }}">Exercise</a>
+          </li>
+          <li>
+            <a href="{{ url_for('betsy.betsy') }}">Betsy Webshop</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="{{ url_for('home.logout') }}">Log Out</a>
+      </li>
+    </ul>
+    {% else %}
+    <ul>
+      <li><a href="{{ url_for('home.index') }}">Home</a></li>
+      <li><a href="{{ url_for('home.about') }}">About</a></li>
+      <li><a href="{{ url_for('home.login') }}">Login</a></li>
+      <li><a href="{{ url_for('home.register') }}">Register</a></li>
+    </ul>
+  </nav>
+  {% endif %}
+</header>

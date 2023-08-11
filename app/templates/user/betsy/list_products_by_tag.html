@@ -1,0 +1,27 @@
+{% extends "user/betsy.html" %}
+<!-- betsy_content -->
+{% block betsy_content%}
+<article id="form-area" style="margin-top: 30px">
+  <h1>View the products for a given tag ID.</h1>
+  <hr />
+  <form action="" method="post">
+    <label for="tag_id">Tag ID</label>
+    <input type="text" name="tag_id" id="tag_id" placeholder="Give tag_ID" />
+    <button type="submit" name="submit-search">Search by tag</button>
+  </form>
+</article>
+<article class="result">
+  {% for item in res %}
+  <h4>{{ item.name }}</h4>
+  <span
+    >{{ item.description }} Price: {{ item.price_per_unit }} per unit. Quantity
+    in stock: {{ item.amount_in_stock }}.</span
+  >
+  <hr />
+  {% endfor %}
+  <!-- message -->
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</article>
+{% endblock %}

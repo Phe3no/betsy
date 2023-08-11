@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+<!-- title -->
+{% block title %}Login{% endblock %}
+<!-- content -->
+{% block content%}
+<main id="main-area">
+  <section id="form-area">
+    <h2>Login</h2>
+    <hr />
+    <form method="post">
+      <label for="username">Username</label>
+      <input name="username" id="username" required />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+      <button type="submit" name="submit-login">Log In</button>
+    </form>
+    <hr />
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+  </section>
+</main>
+{% endblock%}

@@ -1,0 +1,43 @@
+{% extends "user/betsy.html" %}
+<!-- betsy_content -->
+{% block betsy_content%}
+<article id="form-area" style="margin-top: 30px">
+  <h1>Add your product {{ g.user.username }}</h1>
+  <hr />
+  <form action="" method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" />
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" />
+    <label for="price">Price</label>
+    <input type="text" name="price" id="price" />
+    <label for="quantity">Quantity</label>
+    <input type="number" name="quantity" id="quantity" min="1" max="250" />
+    <h4>Check some tags according to your product</h4>
+    <section class="checkbox-area">
+      {% for item in tags %}
+      <div class="label-with-checkbox">
+        <label for="{{ item.tag }}">{{ item.tag }}</label>
+        <input type="checkbox" , name="{{ item.tag }}" , id="{{ item.tag }}" />
+      </div>
+      {% endfor %}
+    </section>
+    <button type="submit" name="submit-search">Add your product</button>
+  </form>
+</article>
+<article class="result">
+  {% for item in res %}
+
+  <h4>A {{ item.name }} has been added to your account</h4>
+  <span
+    >{{ item.description }} Price: {{ item.price_per_unit }} per unit. Quantity
+    in stock: {{ item.amount_in_stock }}.</span
+  >
+  <hr />
+  {% endfor %}
+  <!-- message -->
+  {% if g.message %}
+  <div class="flash">{{ g.message }}</div>
+  {% endif %}
+</article>
+{% endblock %}

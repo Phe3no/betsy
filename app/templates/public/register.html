@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+<!-- title -->
+{% block title %}Register{% endblock %}
+<!-- content -->
+{% block content%}
+<main id="main-area">
+  <section id="form-area">
+    <h2>Register</h2>
+    <hr />
+    <form method="post">
+      <label for="username">Username</label>
+      <input name="username" id="username" required />
+      <label for="email">Email</label>
+      <input name="email" id="email" required />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+      <label for="address">Address data</label>
+      <input type="address" name="address" id="address" required />
+      <label for="billing">billing_information</label>
+      <input type="billing" name="billing" id="billing" required />
+      <button type="submit" name="submit-register">Register</button>
+    </form>
+    <hr />
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+  </section>
+</main>
+{% endblock%}

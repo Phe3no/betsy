@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+<!-- title -->
+{% block title %}Results{% endblock %}
+<!-- content -->
+{% block content%}
+<main id="main-area">
+  <article>
+    <h1>Results</h1>
+    <p>Please, click one of the links below.</p>
+    <hr />
+    <nav id="sub-nav-area">
+      <ul>
+        <li><a href="{{ url_for('exercise.ingredients') }}">Ingredients</a></li>
+        <li>
+          <a href="{{ url_for('exercise.add_ingredient') }}">Add Ingredient</a>
+        </li>
+        <li>
+          <a href="{{ url_for('exercise.cheapest_dish') }}">Cheapest dish</a>
+        </li>
+        <li>
+          <a href="{{ url_for('exercise.vegetarian_dishes') }}"
+            >Vegetarian dishes</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('exercise.best_average_rating') }}"
+            >Best average rating</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('exercise.add_rating') }}">Add rating</a>
+        </li>
+        <li>
+          <a href="{{ url_for('exercise.dinner_date_possible') }}"
+            >Dinner date possible</a
+          >
+        </li>
+        <li>
+          <a href="{{ url_for('exercise.add_dish') }}">Add dish</a>
+        </li>
+      </ul>
+    </nav>
+  </article>
+  {% block exercise_content %}{% endblock %}
+</main>
+{% endblock %}

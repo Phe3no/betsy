@@ -1,0 +1,26 @@
+{% extends "user/exercise.html" %}
+<!-- content -->
+{% block exercise_content %}
+<article style="margin-top: 30px">
+  <h1>Ingredients</h1>
+  <hr />
+  <p style="margin-bottom: 30px">Ingredients we can use are:</p>
+  <!-- start for loop -->
+  {% for ingredient in res %}
+  <h4>{{ ingredient.name }}</h4>
+  {% if ingredient.is_vegetarian %}
+  <span>vegetarian</span>
+  {% endif %} {% if ingredient.is_vegan %}
+  <span>vegan</span>
+  {% endif %} {% if ingredient.is_glutenfree %}
+  <span>glutenfree</span>
+  {% endif %}
+  <hr />
+  <!-- end for loop -->
+  {% endfor %}
+  <hr />
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</article>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "user/exercise.html" %}
+<!-- exercise_content -->
+{% block exercise_content%}
+<article class="result" style="margin-top: 30px">
+  <h1>Best average rating</h1>
+  <hr />
+  <p style="margin-bottom: 30px">Best average rated restaurant is:</p>
+  <h4>
+    With a average rating of {{best_average}}, {{best_restaurant}} is the best
+    rated restaurant!
+  </h4>
+  <hr />
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</article>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "user/exercise.html" %}
+<!-- content -->
+{% block exercise_content%}
+<article class="result" style="margin-top: 30px">
+  <h1>The cheapest dish</h1>
+  <hr />
+  <p>The cheapest dish is</p>
+  <h4>{{ res }}</h4>
+  <hr />
+  {% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+</article>
+{% endblock %}
