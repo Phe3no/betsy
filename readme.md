@@ -47,7 +47,7 @@
 
 - after that install flask and peewee
 
-        pip install flask and peewee
+        pip install flask peewee
 
         # check which packages are installed in the virual environment
         pip list
